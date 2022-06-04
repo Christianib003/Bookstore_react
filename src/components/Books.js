@@ -4,9 +4,18 @@ import Book from './Book';
 
 const Books = () => (
   <div className="allBooks">
-    <Book />
-    <Book />
-    <Book />
+    <Book
+      title="Black Panther"
+      author="Stan Lee"
+    />
+    <Book
+      title="Black Panther"
+      author="Stan Lee"
+    />
+    <Book
+      title="Black Panther"
+      author="Stan Lee"
+    />
     <hr />
     <AddBook />
   </div>

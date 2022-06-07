@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import booksReducer from './books/books';
 import categoriesReducer from './categories/categories';
 

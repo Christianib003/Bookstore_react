@@ -1,39 +1,47 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 
-const Book = (props) => {
-  const { title, author } = props;
-  return (
-    <>
-      <div className="bookItems">
-        <div className="bookDetails">
-          <span className="details">Comic</span>
-          <h3 className="title">{ title }</h3>
-          <span className="name">{ author }</span>
-          <div className="actions">
-            <ul className="action">
-              <li>Comments</li>
-              <li>Remove</li>
-              <li>Edit</li>
-            </ul>
+const Book = () => {
+  const books = useSelector((state) => state.booksReducer);
+  const dispatch = useDispatch();
+  if (books !== []) {
+    return (
+      <>
+        {books.map((book) => (
+          <div className="bookItems" key={book.id}>
+            <div className="bookDetails">
+              <h3 className="title">{book.title}</h3>
+              <span className="name">{book.author}</span>
+              <div className="actions">
+                <ul className="action">
+                  <li>
+                    <button type="button">Comments</button>
+                  </li>
+                  <li>
+                    <button type="button" onClick={() => dispatch(removeBook(book.id))}>Remove</button>
+                  </li>
+                  <li>
+                    <button type="button">Edit</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="progress">
+              <span>77%</span>
+              <span className="status">Completed</span>
+            </div>
+            <div className="chapter">
+              <span>CURRENT CHAPTER</span>
+              <h3>Chapter 20</h3>
+              <button type="button" className="btn" id={book.id}>Update progress</button>
+            </div>
           </div>
-        </div>
-        <div className="progress">
-          <span>77%</span>
-          <span className="status">Completed</span>
-        </div>
-        <div className="chapter">
-          <span>CURRENT CHAPTER</span>
-          <h3>Chapter 20</h3>
-          <button type="button" className="btn">Update progress</button>
-        </div>
-      </div>
-    </>
-  );
-};
-Book.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+        ))}
+      </>
+    );
+  }
+  return (<h2>Please add a book</h2>);
 };
 
 export default Book;

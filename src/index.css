@@ -160,6 +160,15 @@ hr {
   border: 1px solid #e8e8e8;
 }
 
+.bAuthor {
+  width: 27%;
+  margin: 0 0 0 3%;
+  height: 48px;
+  padding: 0 0 0 1%;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+}
+
 .field {
   background-color: #fff;
   width: 25%;

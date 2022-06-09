@@ -100,8 +100,20 @@ button {
 
 .progress {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 2rem;
+}
+
+.progress-circle {
+ font-size: 45px;
+ width: 60px;
+ color: #4386bf;
+ padding: 7px 0 0 0;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
 }
 
 .status {

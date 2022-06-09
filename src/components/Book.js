@@ -1,3 +1,4 @@
+import { FaCircleNotch } from 'react-icons/fa';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBooks, removeBook } from '../redux/books/books';
@@ -31,8 +32,13 @@ const Book = () => {
               </div>
             </div>
             <div className="progress">
-              <span>77%</span>
-              <span className="status">Completed</span>
+              <div className="progress-circle">
+                <FaCircleNotch className="progress-circle" />
+              </div>
+              <div className="side">
+                <span>96%</span>
+                <span className="status">Completed</span>
+              </div>
             </div>
             <div className="chapter">
               <span>CURRENT CHAPTER</span>
